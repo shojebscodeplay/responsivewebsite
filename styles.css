@@ -11,12 +11,12 @@
     width: 100%;
     height: 100%;
     color: #333;
-    background-color: #f13535;
+    background-color:whitesmoke;
   }
   
   /* Add your styles here */
   header {
-    background-color: #333;
+    background-color: #333333;
     color: #fff;
   }
   
@@ -34,11 +34,11 @@
     font-size: 1.8rem;
     font-family: Georgia, Times New Roman, serif; /* Serif fonts */
     font-weight: bold; /* Make the text bold */
-    background: linear-gradient(to right, black, rgb(255, 0, 0)); /* Gradient colors */
+    background: linear-gradient(to left, black, rgb(255, 0, 0), white); /* Gradient colors */
     -webkit-background-clip: text; /* Clip the background to text (WebKit) */
     background-clip: text; /* Standard property */
     -webkit-text-fill-color: transparent; /* Make the text fill color transparent (WebKit) */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+    text-shadow: 2px 2px 4px rgba(209, 6, 6, 0.5); 
     border: 3px solid;
     border-radius: 5px;
   }
@@ -46,44 +46,275 @@
   .nav-links {
     list-style: none;
     display: flex;
-  }
-  
-  .nav-links li {
+    position: relative;
+    overflow: hidden;
+    padding: 0; 
+/* Remove default padding */
+}
+
+.nav-links li {
     margin: 0 2vw;
-  }
-  
-  .nav-links a {
-    color: #fff;
-    text-decoration: none;
+}
+
+.nav-links a {
+    color: #fff; /* Initial text color */
     font-size: 1.5rem;
-    border: 2px solid rgb(250, 248, 248);
+    text-decoration: none;
+    border: 2px solid rgb(250, 248, 248); /* Border color */
     border-radius: 10px;
-    padding: 5px;
-  }
-  
-  .nav-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .menu-toggle {
- display: none
-  }
+    padding: 5px 10px; /* Adjusted padding */
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease, font-size 0.3s ease;
+    display: inline-block; /* Ensure proper padding and alignment */
+    z-index: 1; /* Ensure text is above the background */
+    /* Apply initial fadeInUp animation */
+    animation: fadeInUp 0.4s ease forwards; 
+}
 
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ee2323; /* Background color on hover */
+    transition: top 0.3s ease;
+    z-index: -1; /* Place behind the text */
+}
 
+.nav-links a:hover::before {
+    top: 0%; /* Slide up effect */
+}
 
-#body{
-    height: 50vh;
-    width: 100vw;
+.nav-links a:hover {
+    color: #fff; /* Text color on hover */
+    font-size: 1.5rem; /* Slightly larger text on hover for emphasis */
+}
 
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
 
 
 
+#main{
+    height: 60vh;
+    width: 100%;
+    font-size: larger;
+}
+#vdo video{
+    height: 60vh;
+    width: 100vw;
+    object-fit: cover; /* Optional: cover the container, maintaining aspect ratio */
+
+}
+/*moving text*/
+#moving-text {
+    white-space: nowrap;
+    overflow-x: auto;
+    background-color: #F4F4F4;
+}
+
+#moving-text::-webkit-scrollbar {
+    display: none;
+}
+
+.con {
+    white-space: nowrap;
+    display: inline-block;
+    animation-name: move;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#moving-text h1 {
+    font-size: 2vw;
+    background: linear-gradient(to right, #0fae1c, #79f80b);
+    display: inline-block;
+}
+
+#gola {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgb(250, 5, 5);
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
 
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #moving-text h1 {
+        font-size: 6vw; /* Adjust font size for smaller screens */
+    }
 
+    #gola {
+        height: 4vh;
+        width: 4vw;
+    }
+}
+
+@media (max-width: 480px) {
+    #moving-text h1 {
+        font-size: 6.5vw; /* Further adjust font size for very small screens */
+    }
+
+    #gola {
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle; /* Align with text baseline */
+
+
+    }
+}
+
+@keyframes move{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+
+/*Service COntainer*/
+.service-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #101010;
+    text-decoration: underline;
+}
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background-color: #246bde63;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    width: 30%; /* Adjust width to fit 3 items in a row */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #f4cccc;
+}
+
+p {
+    font-size: 1rem;
+    color: #090909;
+}
+
+@media (max-width: 768px) {
+    .service-item {
+        width: 100%; /* Stack items vertically on smaller screens */
+        margin: 10px 0;
+    }
+}
+
+/*Work container*/
+.work-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.works {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.work-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    width: 30%; /* Adjust width to fit 3 items in a row */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.work-image {
+    width: 100%; /* Make image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    font-size: 1rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .work-item {
+        width: 100%; /* Stack items vertically on smaller screens */
+        margin: 10px 0;
+    }
+}
 
 
   /* Footer Container */
@@ -114,6 +345,10 @@
     margin-bottom: 15px;
     color: #0078d4; /* Microsoft's primary color */
 }
+.footer-section p {
+    color:black;
+}
+
 
 .contact-info, .social-media {
     margin-top: 10px;
@@ -160,6 +395,7 @@
     margin: 0;
     font-size: 0.875rem; /* Slightly smaller text */
 }
+
 
 
 
@@ -225,8 +461,7 @@
   
   
     .menu-toggle {
-        display: block;
-
+      display: block;
       background-color: #333;
       color: #fff;
       padding: 10px;
