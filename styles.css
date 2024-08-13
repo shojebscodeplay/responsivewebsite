@@ -268,7 +268,7 @@
         }
     
         .contact-info, .social-media {
-            flex-direction: column; /* Stack contact and social items vertically */
+            flex-direction: row; /* Stack contact and social items vertically */
             align-items: center; /* Center items horizontally */
         }
     
