@@ -34,13 +34,11 @@
     font-size: 1.8rem;
     font-family: Georgia, Times New Roman, serif; /* Serif fonts */
     font-weight: bold; /* Make the text bold */
-    background: linear-gradient(to left, black, rgb(255, 0, 0), white); /* Gradient colors */
+    background: linear-gradient(to right ,blue, black, rgb(255, 0, 0), white); /* Gradient colors */
     -webkit-background-clip: text; /* Clip the background to text (WebKit) */
     background-clip: text; /* Standard property */
     -webkit-text-fill-color: transparent; /* Make the text fill color transparent (WebKit) */
     text-shadow: 2px 2px 4px rgba(209, 6, 6, 0.5); 
-    border: 3px solid;
-    border-radius: 5px;
   }
   
   .nav-links {
